@@ -2,7 +2,8 @@
 #include "hello.hbpf.h"
 
 BPF_PEERF_OUTPUT(gotopia);
-SEC("kprobe/sys_execve");
+// SEC("kprobe/sys_execve");
+SEC("raw_tracepoint/sys_enter");
 int hello(void *ctx)
 {
   char data[30];
